@@ -3,7 +3,9 @@ using namespace std;
 #include "models/searchingAlgo.cpp"
 #include "models/sortingAlgo.cpp"
 // #include "linkedList/single/linkedList.cpp"
-#include "linkedList/double/linkedList.cpp"
+// #include "linkedList/double/linkedList.cpp"
+#include "linkedList/circular/linkedList.cpp"
+
 
 
 
@@ -30,14 +32,14 @@ int main() {
     // int arr[10] = {3, 3 ,3 , 52, 131, 134, 400, 400, 700, 700};
     // sa.recursiveBinarySearch(arr, 400);
 
-    DoubleLinkedList list;
+    DoubleCircularLinkedList list;
 
     list.insertAtHead(10);
     list.insertAtTail(20);
     list.insertAtTail(30);
 
 
-    list.remove(30);
+    // list.remove(30);
 
     list.printForward();
     list.printBackward();
