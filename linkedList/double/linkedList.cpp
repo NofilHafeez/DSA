@@ -61,30 +61,6 @@ public:
     cout << endl;
 }
 
-
-
-//     void remove(int value) {
-//     DoubleNode* temp = head;
-//     while (temp != nullptr) {
-//         if (temp->data == value) {
-//             if (temp->prev != nullptr)
-//                 temp->prev->next = temp->next;
-//             else
-//                 head = temp->next;
-
-//             if (temp->next != nullptr)
-//                 temp->next->prev = temp->prev;
-//             else
-//                 tail = temp->prev;
-
-//             delete temp;
-//             return;
-//         }
-//         temp = temp->next;
-//     }
-// }
-
-
     void remove(int value) {
         if (head == nullptr) return;
 

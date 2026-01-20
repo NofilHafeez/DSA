@@ -39,7 +39,7 @@ int main() {
     list.insertAtTail(30);
 
 
-    // list.remove(30);
+    list.remove(20);
 
     list.printForward();
     list.printBackward();

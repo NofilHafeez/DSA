@@ -28,7 +28,7 @@ public:
         head->prev = newNode;
         tail->next = newNode;
 
-        head = newNode;`
+        head = newNode;
     }
 }
 
@@ -86,25 +86,30 @@ public:
         if (head == nullptr) return;
 
         DoubleCircularNode* temp = head;
-        while (temp->next != nullptr && temp->data != value) {
+
+        if (head == tail && head->data == value) {
+            delete head;
+            head = tail = nullptr;
+            return;
+        }
+
+        while (temp->data != value) 
+        {
             temp = temp->next;
+            if (temp == head) return; // Value not found
         }
 
-        if (temp == head){
-            head = temp->next;
-            // if (head != nullptr) head->prev = nullptr;
-        } else {
+        if (temp->data == value) {
             temp->prev->next = temp->next;
-        }   
-
-        if (temp == tail) {
-            tail = temp->prev;
-            // if (tail != nullptr) tail->next = nullptr;
-        } else {
             temp->next->prev = temp->prev;
-        }
 
-        delete temp;
+            // if value is head or tail, update head and tail pointers
+            if (temp == head) head = head->next;
+            if (temp == tail) tail = tail->prev;
+
+            delete temp;
+        }
+        
     }
     
         
