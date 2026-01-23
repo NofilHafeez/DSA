@@ -2,10 +2,25 @@
 using namespace std;
 #include "models/searchingAlgo.cpp"
 #include "models/sortingAlgo.cpp"
-// #include "linkedList/single/linkedList.cpp"
+#include "linkedList/single/linkedList.cpp"
 // #include "linkedList/double/linkedList.cpp"
-#include "linkedList/circular/linkedList.cpp"
+// #include "linkedList/circular/linkedList.cpp"
+// #include "linkedList/multist/linkedList.cpp"
+// #include <GL/freeglut.h>
 
+
+// // Display callback function
+// void display() {
+//     glClear(GL_COLOR_BUFFER_BIT);   // Clear screen
+
+//     glBegin(GL_TRIANGLES);          // Start drawing
+//         glVertex2f(-0.5f, -0.5f);
+//         glVertex2f( 0.5f, -0.5f);
+//         glVertex2f( 0.0f,  0.5f);
+//     glEnd();
+
+//     glFlush();                      // Render
+// }
 
 
 
@@ -15,6 +30,15 @@ using namespace std;
     // };
 
 int main() {
+// int argc, char** argv
+    //  glutInit(&argc, argv);                          // Initialize GLUT
+    // glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);   // Display mode
+    // glutInitWindowSize(500, 500);                   // Window size
+    // glutCreateWindow("FreeGLUT Example");           // Window
+
+    // glutDisplayFunc(display);                       // Register display callback
+
+    // glutMainLoop();                                 // Start loop
 
     // Node* head = new Node{10, nullptr};
     // head->next = new Node{20, nullptr};
@@ -32,17 +56,37 @@ int main() {
     // int arr[10] = {3, 3 ,3 , 52, 131, 134, 400, 400, 700, 700};
     // sa.recursiveBinarySearch(arr, 400);
 
-    DoubleCircularLinkedList list;
+    linkedList list;
 
-    list.insertAtHead(10);
-    list.insertAtTail(20);
-    list.insertAtTail(30);
+    list.insert(4);
+    list.insert(1);
+    list.insert(1);
+
+    list.insert(1);
+
+    list.insert(2);
+    list.insert(2);
+    list.insert(5);
+    list.insert(5);
+    list.insert(3);
+    list.insert(3);
+    list.insert(0);
+    list.insert(0);
+
+    list.remove(4);
+
+    list.searching(5);
 
 
-    list.remove(20);
+    list.print();
 
-    list.printForward();
-    list.printBackward();
+    
+
+
+    // list.remove(20);
+
+    // list.print();
+    // list.printBackward();
     // sa.binarySearch(400);
     // sa.linearSearch(42);
 
@@ -54,7 +98,10 @@ int main() {
 
     
 
-
+    // string a = "apple";
+    // string b = a;
+    // a = "banna";
+    // cout << a << b;
 
     return 0;
 }

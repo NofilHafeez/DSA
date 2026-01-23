@@ -17,3 +17,11 @@
     ],
     "version": 4
 }
+
+
+// | File                    | Purpose          | Required to Compile? |
+// | ----------------------- | ---------------- | -------------------- |
+// | `c_cpp_properties.json` | IntelliSense     |  No                  |
+// | `tasks.json`            | Build automation |  No                  |
+// | `launch.json`           | Debugging        |  No                  |
+// | `settings.json`         | Editor behavior  |  No                  |

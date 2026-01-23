@@ -86,6 +86,17 @@ public:
         delete temp;
     }
     
+     void searching(int value) {
+        DoubleNode* current = head;
+        while (current != nullptr) {
+            if (current->data == value) {
+                cout << "Value " << value << " found in the list.\n";
+                return;
+            }
+            current = current->next;
+        }
+        cout << "Value " << value << " not found in the list.\n";
+    }
         
 
 

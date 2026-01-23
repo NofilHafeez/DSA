@@ -109,7 +109,7 @@ public:
             // The recurrence relation for this algorithm is:
             // T(n)=T(n/2)+O(1)
             // Notation is O(log n)
-            // Once size becomes 1, recursion ends.
+            // Once size becomes 1, recursion ends. 
 
     }
 

@@ -111,6 +111,19 @@ public:
         }
         
     }
+
+
+     void searching(int value) {
+        DoubleCircularNode* current = head;
+        do {
+            if (current->data == value) {
+                cout << "Value " << value << " found in the list.\n";
+                return;
+            }  
+            current = current->next;
+        } while (current != head);
+        cout << "Value " << value << " not found in the list.\n";
+    }
     
         
 

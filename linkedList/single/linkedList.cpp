@@ -19,6 +19,18 @@ public:
     // and returns the address of the newly created object
     // newNode  ---->  [ data | next ]
     //              value   NULL
+    // Node* cur = head;
+    Node* sort = head;
+    Node* prev = nullptr;
+    bool flag = false;
+
+    // while (cur != nullptr) {
+    //     if (cur->data == value) {
+    //         cout << "Duplicate value " << value << " not inserted.\n";
+    //         return;
+    //     }
+    //     cur = cur->next;
+    // }
 
     Node* newNode = new Node(value); 
 
@@ -27,14 +39,30 @@ public:
         return;
     }
 
-    tail->next = newNode; // better O(1)
-    tail = newNode;
+      while (sort != nullptr) {    
+        if (sort->data > value) {  
+            if (sort == head) {
+                flag = true;    
+                head = newNode;
+                newNode->next = sort;
+                return;
+            } 
+            flag = true;
+            // middle insertion
+            prev->next = newNode;
+            newNode->next = sort;
+            return;
+        }
+        prev = sort; 
+        sort = sort->next;
 
-    // Node* current = head;
-    // while (current->next != nullptr) {
-    //     current = current->next;
-    // }
-    // current->next = newNode;
+        if (!flag && sort == nullptr) {
+            tail->next = newNode;
+            tail = newNode;
+            return;
+        }
+    }
+
  }
 
 
@@ -51,28 +79,44 @@ public:
     void remove(int value) {
         if (head == nullptr) return;
 
-        if (head->data == value) {
-            Node* toDelete = head;
-            head = head->next;
-            delete toDelete;
-            return;
-        }
-
         Node* current = head;
-        // 10 != 20
-        // current = current->next;
-        // 20 != 20
-        while (current->next != nullptr && current->next->data != value) { // stops when the node is detected
+        bool found = false; 
+
+        while (current != nullptr ) { // stops when the node is detected
+            if (current->data == value && current == head) {
+                    found = true;
+                    Node* toDelete = head; // node to be deleted
+                    head = head->next; // move head to next node
+                    current = head; // update current to new head
+                    delete toDelete; // free memory 
+                    continue;   
+            } else if (current->next != nullptr && current->next->data == value) {
+                    found = true;
+                    Node* toDelete = current->next;
+                    current->next = current->next->next; // bypass the node
+                    delete toDelete;
+                    // break;
+                    continue;
+            } 
             current = current->next; //prev node
-        }
-        if (current->next != nullptr) {
-            Node* toDelete = current->next; // node to be deleted
-            current->next = current->next->next; // bypass the node
-            delete toDelete;
-        }
+            };
+
+            if (!found) {
+                cout << "Value " << value << " not found in the list.\n";
+            }
     }
         
-
+    void searching(int value) {
+        Node* current = head;
+        while (current != nullptr) {
+            if (current->data == value) {
+                cout << "Value " << value << " found in the list.\n";
+                return;
+            }
+            current = current->next;
+        }
+        cout << "Value " << value << " not found in the list.\n";
+    }
 
 };
 
