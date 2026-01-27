@@ -29,7 +29,7 @@ public:
         int mid = 0;
         // int count = 1;
         
-        while (l <= r) {
+        while (l <=r) {
             mid = (l + r) / 2;
             
             if (valueToSearch == arr[mid]) {

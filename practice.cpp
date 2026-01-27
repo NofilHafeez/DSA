@@ -1,15 +1,16 @@
 #include <iostream>
 using namespace std;
-#include "models/searchingAlgo.cpp"
-#include "models/sortingAlgo.cpp"
-#include "linkedList/single/linkedList.cpp"
+// #include "models/searchingAlgo.cpp"
+// #include "models/sortingAlgo.cpp"
+#include "include/linkedList.h"
 // #include "linkedList/double/linkedList.cpp"
 // #include "linkedList/circular/linkedList.cpp"
 // #include "linkedList/multist/linkedList.cpp"
+#include "heap/heap.cpp"
 // #include <GL/freeglut.h>
 
 
-// // Display callback function
+// Display callback function
 // void display() {
 //     glClear(GL_COLOR_BUFFER_BIT);   // Clear screen
 
@@ -29,14 +30,35 @@ using namespace std;
     //     Node* next;
     // };
 
-int main() {
-// int argc, char** argv
+int main(int argc, char** argv) {
+
     //  glutInit(&argc, argv);                          // Initialize GLUT
     // glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);   // Display mode
     // glutInitWindowSize(500, 500);                   // Window size
     // glutCreateWindow("FreeGLUT Example");           // Window
 
-    // glutDisplayFunc(display);                       // Register display callback
+    // glutDisplayFunc(display); 
+    
+    // linkedList list;
+
+    // list.insert(4);
+    // list.insert(1);
+    // list.insert(1);
+
+    // list.insert(1);
+
+    // list.insert(2);
+    // list.insert(2);
+    // list.insert(5);
+    // list.insert(5);
+    // list.insert(3);
+    // list.insert(3);
+    // list.insert(0);
+    // list.insert(0);
+
+    // list.remove(4);
+
+    // list.searching(5);                      // Register display callback
 
     // glutMainLoop();                                 // Start loop
 
@@ -56,34 +78,15 @@ int main() {
     // int arr[10] = {3, 3 ,3 , 52, 131, 134, 400, 400, 700, 700};
     // sa.recursiveBinarySearch(arr, 400);
 
-    linkedList list;
-
-    list.insert(4);
-    list.insert(1);
-    list.insert(1);
-
-    list.insert(1);
-
-    list.insert(2);
-    list.insert(2);
-    list.insert(5);
-    list.insert(5);
-    list.insert(3);
-    list.insert(3);
-    list.insert(0);
-    list.insert(0);
-
-    list.remove(4);
-
-    list.searching(5);
+    
 
 
-    list.print();
+    // list.print();
 
     
 
 
-    // list.remove(20);
+    // // list.remove(20);
 
     // list.print();
     // list.printBackward();
@@ -95,7 +98,12 @@ int main() {
         // sa.selectionSort();
         // sa.insertionSort();
 
+    // Heap h({50, 30, 20 , 15, 10, 8, 16});
+    Heap h({10, 20, 15, 30 ,40});
 
+    // h.insert(60);
+    // h.deleteRoot(60);
+    h.print();  
     
 
     // string a = "apple";

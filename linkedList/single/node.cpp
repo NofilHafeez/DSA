@@ -1,10 +1,6 @@
-class Node {
-public:
-    int data; // data part of the node
-    Node* next; // pointer to the next node
+#include "node.h"
 
-    Node(int value) {
-        data = value; // initialize data
-        next = nullptr; // set next to nullptr initially 
-    }
-};
+Node::Node(int value) {
+    data = value;
+    next = nullptr;
+}

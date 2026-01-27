@@ -9,6 +9,12 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "linkedList/single/linkedList.cpp",
+                 "models/searchingAlgo.cpp",
+                 "models/sortingAlgo.cpp",
+                "-lfreeglut",
+                "-lopengl32",
+                "-lglu32",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
