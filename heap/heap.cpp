@@ -1,4 +1,4 @@
-#include "../include/heap.h"
+#include "../include/heap/heap.h"
 #include <iostream>
 #include <vector>
 using namespace std;
