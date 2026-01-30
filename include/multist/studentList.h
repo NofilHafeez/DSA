@@ -10,5 +10,6 @@ public:
     StudentLinkedList();
     Student* insert(const std::string& name);
     Student* find(const std::string& name);
+    void remove(const std::string& name);
     void print();
 };

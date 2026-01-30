@@ -42,3 +42,27 @@
         }
         return nullptr;
     }
+
+
+
+    void StudentLinkedList::remove(const std::string& name) {
+        if (!head) return;
+
+        while (head && head->name == name) {
+            Student* del = head;
+            head = head->nextStudent;
+            delete del;
+        }
+
+        Student* current = head;
+        while (current && current->nextStudent) {
+            if (current->nextStudent->name == name) {
+                Student* del = current->nextStudent;
+                current->nextStudent = del->nextStudent;
+                delete del;
+            } else {
+                current = current->nextStudent;
+            }
+        }
+    }
+

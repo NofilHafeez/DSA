@@ -10,5 +10,6 @@ public:
     CourseLinkedList();
     void insert(const std::string& courseName);
     Course* find(const std::string& courseName);
+    void remove(const std::string& courseName);
     void print();
 };

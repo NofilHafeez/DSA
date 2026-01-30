@@ -7,26 +7,49 @@ using namespace std;
 // #include "linkedList/circular/linkedList.cpp"
 // #include "linkedList/multist/linkedList.cpp"
 // #include "heap/heap.cpp"
-#include "linkedList/multist/studentList.cpp"
-#include "linkedList/multist/courseList.cpp"
+// #include "linkedList/multist/studentList.cpp"
+// #include "linkedList/multist/courseList.cpp"
+// #include "include/multist/studentList.h"
+// #include "include/multist/courseList.h"
+#include "include/stack/stack.h"
 
 
-int main(int argc, char** argv) {
+int main() {
 
-    CourseLinkedList courseList;
+    // CourseLinkedList courseList;
   
-    courseList.insert("maths");
-    Course* math = courseList.find("maths");
+    // courseList.insert("maths");
+    // courseList.insert("physics");
+
+    // Course* math = courseList.find("maths");
+    // Course* physics = courseList.find("physics");
     
-    math->studentList = new StudentLinkedList();
-    math->studentList->insert("Alice");
-    math->studentList->insert("bob");
+    // math->studentList = new StudentLinkedList();
+    // math->studentList->insert("Alice");
+    // math->studentList->insert("bob");
 
-    Student* alice = math->studentList->find("Alice");
-    cout << "Found student: " << alice->name << endl;
+    // math->studentList->remove("bob");
 
-    math->studentList->print(); 
-    courseList.print();
+    // physics->studentList = new StudentLinkedList();
+    
+    // courseList.remove("physics");
+
+
+    // Student* alice = math->studentList->find("Alice");
+    // cout << "Found student: " << alice->name << endl;
+
+    // math->studentList->print(); 
+    // courseList.print();
+
+    Stack stack;
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+
+    stack.pop();
+    stack.print(); 
+    stack.searching(30);
+    
 
 
 

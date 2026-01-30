@@ -1,6 +1,7 @@
 #include <string>
 #include "../../include/multist/courseList.h"
 #include "../../include/multist/course.h"
+using namespace std;
 
 #include <iostream>
 
@@ -25,6 +26,11 @@ void CourseLinkedList::print() {
 
     while (temp != nullptr) {
         Student* s = temp->studentList->head;
+        if (!s) {
+            std::cout << temp->courseName << " -> ( NULL )  -> ";
+            temp = temp->nextCours;
+            continue;
+        }
         std::cout << temp->courseName << " -> ( ";
         while (s != nullptr) {
             std::cout << s->name << ", ";
@@ -49,3 +55,23 @@ Course* CourseLinkedList::find(const std::string& courseName) {
     return nullptr;
 }
 
+void CourseLinkedList::remove(const std::string& courseName) {
+    if (!head) return;
+
+    while (head && head->courseName == courseName) {
+        Course* del = head;
+        head = head->nextCours;
+        delete del;
+    }
+
+    Course* current = head;
+    while (current && current->nextCours) {
+        if (current->nextCours->courseName == courseName) {
+            Course* del = current->nextCours;
+            current->nextCours = del->nextCours;
+            delete del;
+        } else {
+            current = current->nextCours;
+        }
+    }
+}
