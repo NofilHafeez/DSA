@@ -11,7 +11,8 @@ using namespace std;
 // #include "linkedList/multist/courseList.cpp"
 // #include "include/multist/studentList.h"
 // #include "include/multist/courseList.h"
-#include "include/stack/stack.h"
+// #include "include/stack/stack.h"
+#include "stack/staticStack.cpp"
 
 
 int main() {
@@ -41,14 +42,15 @@ int main() {
     // math->studentList->print(); 
     // courseList.print();
 
-    Stack stack;
+    staticStack stack;
     stack.push(10);
     stack.push(20);
     stack.push(30);
 
     stack.pop();
+    stack.peek();
     stack.print(); 
-    stack.searching(30);
+    // stack.searching(30);
     
 
 

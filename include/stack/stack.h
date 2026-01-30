@@ -25,3 +25,6 @@ public:
     void print();
     void searching(int);
 };
+
+
+
