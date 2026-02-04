@@ -12,7 +12,10 @@ using namespace std;
 // #include "include/multist/studentList.h"
 // #include "include/multist/courseList.h"
 // #include "include/stack/stack.h"
-#include "stack/staticStack.cpp"
+// #include "stack/staticStack.cpp"
+#include "queue/queue.cpp"
+#include "hashing/hashing.cpp"
+
 
 
 int main() {
@@ -42,19 +45,34 @@ int main() {
     // math->studentList->print(); 
     // courseList.print();
 
-    staticStack stack;
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
+    // staticStack stack;
+    // stack.push(10);
+    // stack.push(20);
+    // stack.push(30);
 
-    stack.pop();
-    stack.peek();
-    stack.print(); 
+    // stack.pop();
+    // stack.peek();
+    // stack.print(); 
+
+    // staticQueue queue;
+    // queue.enqueue(3);
+    // // queue.enqueue(5);
+    // // queue.enqueue(10);
+    // // queue.dequeue();
+    // queue.dequeue();
+    // // queue.peek();
+
+    // queue.print();
+
     // stack.searching(30);
-    
 
 
-
+    hashing h;
+    h.insert(3);
+    h.insert(5);
+    h.insert(3);
+    h.print();
+    // cout << h.search(3);
 
 
     return 0;
