@@ -2,18 +2,18 @@
 #include <vector>
 using namespace std;
 
-class hashing {
+class openHashing {
 public:
     static constexpr int TABLE_SIZE = 10;
     vector<int> table[TABLE_SIZE];
 
     unsigned int hashFunction(int key) {
-        v
+        return key % TABLE_SIZE;
     }
 
     void insert(int key) {
         unsigned int index = hashFunction(key);
-        for (int val : table[index]) {    
+        for (int val : table[index]) {      
             if (val == key) {
                 cout << "duplicate\n";
                 return;

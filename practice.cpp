@@ -13,8 +13,12 @@ using namespace std;
 // #include "include/multist/courseList.h"
 // #include "include/stack/stack.h"
 // #include "stack/staticStack.cpp"
-#include "queue/queue.cpp"
-#include "hashing/hashing.cpp"
+// #include "queue/queue.cpp"
+// #include "hashing/openHashing.cpp"
+#include "hashing/closeHashing.cpp"
+// #include "mergeSort/mergeSort.cpp"
+// #include "queue/dynamicQueue.cpp"
+
 
 
 
@@ -67,12 +71,30 @@ int main() {
     // stack.searching(30);
 
 
-    hashing h;
+    closeHashing h;
     h.insert(3);
     h.insert(5);
     h.insert(3);
     h.print();
-    // cout << h.search(3);
+    cout << h.search(3);
+
+    // vector<int> arr = {5, 2, 4, 1, 3};
+
+    // MergeSort ms;
+    // ms.sort(arr);
+
+    // for (int x : arr)
+    // cout << x << " ";
+
+    // DynamicQueue dq;
+    // dq.enqueue(3);
+    // dq.enqueue(4);
+    // dq.enqueue(8);
+    // dq.enqueue(2);
+    // dq.dequeue();
+    // dq.dequeue();
+
+    // dq.print();
 
 
     return 0;
