@@ -15,9 +15,11 @@ using namespace std;
 // #include "stack/staticStack.cpp"
 // #include "queue/queue.cpp"
 // #include "hashing/openHashing.cpp"
-#include "hashing/closeHashing.cpp"
+// #include "hashing/closeHashing.cpp"
 // #include "mergeSort/mergeSort.cpp"
 // #include "queue/dynamicQueue.cpp"
+#include "quickSort/quickSort.cpp"
+
 
 
 
@@ -71,20 +73,13 @@ int main() {
     // stack.searching(30);
 
 
-    closeHashing h;
-    h.insert(3);
-    h.insert(5);
-    h.insert(3);
-    h.print();
-    cout << h.search(3);
+    // closeHashing h;
+    // h.insert(3);
+    // h.insert(5);
+    // h.insert(3);
+    // h.print();
+    // cout << h.search(3);
 
-    // vector<int> arr = {5, 2, 4, 1, 3};
-
-    // MergeSort ms;
-    // ms.sort(arr);
-
-    // for (int x : arr)
-    // cout << x << " ";
 
     // DynamicQueue dq;
     // dq.enqueue(3);
@@ -95,6 +90,17 @@ int main() {
     // dq.dequeue();
 
     // dq.print();
+
+    vector<int> arr = {5, 2, 4, 1, 3, 40, 100 ,6, 150};
+
+    QuickSort ms;
+    ms.sort(arr);
+
+    for (int x : arr) {
+        cout << x << " ";
+    }
+
+    
 
 
     return 0;
