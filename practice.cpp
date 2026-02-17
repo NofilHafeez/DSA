@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
-# include <vector>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <string>
 // #include <algorithm>
 // #include "models/searchingAlgo.cpp"
 // #include "models/sortingAlgo.cpp"
@@ -157,22 +160,158 @@ int main() {
 
     
 
-    OpenHashing h;
+    // OpenHashing h;
 
-    h.insert(12);
-    h.insert(25);
-    h.insert(7);
-    h.insert(32);
-    h.insert(5);
-    h.insert(20);
+    // h.insert(12);
+    // h.insert(25);
+    // h.insert(7);
+    // h.insert(32);
+    // h.insert(5);
+    // h.insert(20);
 
-    h.print();
+    // h.print();
 
-    cout << "Search 25: " << (h.search(25) ? "Found" : "Not Found") << endl;
-    cout << "Search 15: " << (h.search(15) ? "Found" : "Not Found") << endl;
+    // cout << "Search 25: " << (h.search(25) ? "Found" : "Not Found") << endl;
+    // cout << "Search 15: " << (h.search(15) ? "Found" : "Not Found") << endl;
+
+    
+    // int x = 10;
+    // cout << &x << endl;
+    // int* ptr = &x;
+    // cout << *ptr << endl;
 
 
-  
+    // int b =  2;
+    // int* ptr1 = &b;
+    // int** ptr2 = &ptr1;
+    // cout << ptr2 <<endl; // giving the address of the ptr1 
+    // cout << &ptr2 <<endl; // the address of the ptr2
+
+    // int* ptr = new int(5);
+    // delete ptr;
+    // ptr = nullptr;
+    // cout << *ptr;  //  Undefined behavior
+
+
+    // int* a = new int(5); // return the address of the memory. and returns int* (pointer)
+    // int** b = &a;
+    // // int** c = &b;
+
+    // // b = a;
+    // cout << **b;  //  Undefined behavior
+
+    // int c = 4;
+    // int a = 4;
+    // a = c;
+    // cout <<&a << &c;
+
+    // int y = 5;
+    // int& ref = y;
+    // cout << ref;
+
+    // ptr->something
+    // ptr->something
+
+
+
+
+    // for (int i = 1; i <= 10; i++) 
+    // {
+    //     if ( i == 1 / 2 + i) {
+    //         continue;
+    //     }
+    //     cout << i;
+    // }
+
+
+    // for (int i = 1; i <= 10; i++) 
+    // {
+    //     if ( i == 1 / 2 + i && i % 2 == 0) {
+    //         cout << "nothing" << endl;
+    //     } else {
+    //         break;
+    //     }
+    //     cout << i;
+    // }
+
+
+    // for (int i = 1; i <= 10; i++)
+    // {
+    //     int j = i + 1; 
+    //     int d = i % 4;
+
+    //    if (j == 1) {
+    //         break;
+    //    } else if (j == 6 || i * 10 == 10) {
+    //         cout << "Good" << endl;
+    //    } else if ( d < 4  && d != 0) {
+    //         continue;
+    //    } else {
+    //     cout << "nothing" << endl;
+    //    }
+    // }
+
+
+    // for (int i = 1; i <= 10; i++)
+    // {
+    //     int j = i + 1; 
+    //     int d = i % 4;
+
+    //    if (j == 2) {
+    //         cout << "nice" << endl;
+    //    } else if (j == 6 || i * 10 == 10) {
+    //         cout << "Good" << endl;
+    //    }
+    // }
+
+    // if (A)
+    // else if (B)
+    // else if (C)
+    // else
+
+
+    // if (A) {
+    //      }
+    // else {
+    //     if (B) {
+    //     }
+    //     else {
+    //         if (C) {
+    //         }
+    //         else {
+    //         }
+    //     }
+    // }
+
+    // for (int i = 1; i < 10 / 2 || i == 1 / 2 + i  + 1; i++)
+    // {
+    //     cout << i;
+    // }
+    
+    // for (int i = 10; i >= 1; i = i / 2  )
+    // {
+    //     cout << i << endl;
+    // }
+
+    // float b = 3.2;
+    // int a = floor(b);
+    // cout << a;
+    
+    // string str = "hello";
+    // cout << str.length() << endl;
+    // cout << str.substr(0, 3) << endl;
+    // cout << str.find("ll") << endl;
+    // cout << str.replace(0, 3, "new") << endl;
+    // cout << str.size() << endl;
+
+
+    // reverse(v.begin(), v.end());
+    // sort(v.begin(), v.end());
+    // max(a,b);
+    // count(v.begin(), v.end(), value);
+    int c = min(3,6);
+    cout << c;
+    
 
 
     return 0;

@@ -78,8 +78,7 @@ public:
             if (flag[probe] == 0) {
                 table[probe] = key;
                 flag[probe] = 1;
-                countElements++;
-                cout << "Inserted " << key << " | Load factor: " << getLoadFactor() << endl;
+                countElements++
                 return;
             } 
             if (table[probe] == key) {

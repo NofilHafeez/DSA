@@ -30,6 +30,7 @@ public:
         unsigned int index = hashFunction(key);
         Node* head = table[index]; 
         Node* prev = nullptr;
+
         Node* newNode = new Node(key);
         while (head != nullptr && head->data < key) {
             prev = head;
@@ -50,6 +51,7 @@ public:
      bool search(int key) {
         unsigned int index = hashFunction(key);
         Node* head = table[index];
+        
         while (head != nullptr) {
             if (head->data == key) return true;
             head = head->next;
