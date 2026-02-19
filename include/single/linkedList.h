@@ -13,7 +13,7 @@ class Node {
 
 
 class linkedList {
-private:
+public:
     Node* head;
     Node* tail;
 
@@ -22,5 +22,7 @@ public:
     void insert(int);
     void remove(int);
     void print();
+    void printRecursionForward(Node*);
+    void printRecursionBackward(Node*);
     void searching(int);
 };

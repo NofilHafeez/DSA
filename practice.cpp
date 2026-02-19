@@ -7,7 +7,7 @@ using namespace std;
 // #include <algorithm>
 // #include "models/searchingAlgo.cpp"
 // #include "models/sortingAlgo.cpp"
-// #include "include/single/linkedList.h"
+#include "include/single/linkedList.h"
 // #include "linkedList/double/linkedList.cpp"
 // #include "linkedList/circular/linkedList.cpp"
 // #include "linkedList/multist/linkedList.cpp"
@@ -19,12 +19,11 @@ using namespace std;
 // #include "include/stack/stack.h"
 // #include "stack/staticStack.cpp"
 // #include "queue/queue.cpp"
-#include "hashing/openHashing.cpp"
+// #include "hashing/openHashing.cpp"
 // #include "hashing/closeHashing.cpp"
 // #include "mergeSort/mergeSort.cpp"
 // #include "queue/dynamicQueue.cpp"
-#include "queue/circularQueue.cpp"
-
+// #include "queue/circularQueue.cpp"
 // #include "quickSort/quickSort.cpp"
 
 
@@ -336,18 +335,29 @@ int main() {
     // cout << c;
 
 
-    CircularQueue q;
-    q.enqueue(3);
-    q.enqueue(2);
-    q.enqueue(10);
-    q.enqueue(40);
-    q.enqueue(70);
+    // CircularQueue q;
+    // q.enqueue(3);
+    // q.enqueue(2);
+    // q.enqueue(10);
+    // q.enqueue(40);
+    // q.enqueue(70);
 
     
-    q.dequeue();
-    q.enqueue(30);
+    // q.dequeue();
+    // q.enqueue(30);
 
-    q.print();
+    // q.print();
+
+    linkedList l;
+    l.insert(4);
+    l.insert(6);
+    l.insert(2);
+    l.insert(1);
+    Node* temp = l.head;
+    l.printRecursionForward(temp);
+    cout << endl;
+    l.printRecursionBackward(temp);
+
 
 
 

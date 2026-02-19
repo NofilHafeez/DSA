@@ -46,6 +46,26 @@ void linkedList::print() {
     cout << "NULL\n";
 }
 
+void linkedList::printRecursionForward(Node* temp) {
+    if (temp == nullptr) {
+        cout << "NULL";
+        return;
+    }
+    cout << temp->data << " -> ";
+    // temp = temp -> next;
+    printRecursionForward(temp -> next);
+} 
+
+void linkedList::printRecursionBackward(Node* temp) {
+    if (temp == nullptr) {
+        cout << "NULL <-";
+        return;
+    }
+    printRecursionBackward(temp -> next);
+    cout << temp->data << " <- ";
+}
+
+
 void linkedList::remove(int value) {
     if (!head) return;
 
