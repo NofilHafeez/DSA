@@ -23,6 +23,8 @@ using namespace std;
 // #include "hashing/closeHashing.cpp"
 // #include "mergeSort/mergeSort.cpp"
 // #include "queue/dynamicQueue.cpp"
+#include "queue/circularQueue.cpp"
+
 // #include "quickSort/quickSort.cpp"
 
 
@@ -288,10 +290,31 @@ int main() {
     //     cout << i;
     // }
     
+    
     // for (int i = 10; i >= 1; i = i / 2  )
     // {
     //     cout << i << endl;
     // }
+
+    // string a = "Nice";
+    // for (int i = 1; i <= 5; i++)
+    // {
+    //     a = "greate";
+    //     if (i % 5 == 1) {
+    //         if (a == "greate") {
+    //             cout << "Yo! this is greate!!.";
+    //         } else {
+    //             cout << "Probably not :(" << endl;
+    //         }
+    //     } else { 
+    //         if (i * 3 == i + 3) {
+    //             cout << i;
+    //             break;
+    //         } 
+    //     }
+    // }
+    
+
 
     // float b = 3.2;
     // int a = floor(b);
@@ -309,8 +332,25 @@ int main() {
     // sort(v.begin(), v.end());
     // max(a,b);
     // count(v.begin(), v.end(), value);
-    int c = min(3,6);
-    cout << c;
+    // int c = min(3,6);
+    // cout << c;
+
+
+    CircularQueue q;
+    q.enqueue(3);
+    q.enqueue(2);
+    q.enqueue(10);
+    q.enqueue(40);
+    q.enqueue(70);
+
+    
+    q.dequeue();
+    q.enqueue(30);
+
+    q.print();
+
+
+
     
 
 
