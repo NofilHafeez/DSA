@@ -7,15 +7,15 @@ using namespace std;
 // #include <algorithm>
 // #include "models/searchingAlgo.cpp"
 // #include "models/sortingAlgo.cpp"
-#include "include/single/linkedList.h"
+// #include "include/single/linkedList.h"
 // #include "linkedList/double/linkedList.cpp"
 // #include "linkedList/circular/linkedList.cpp"
-// #include "linkedList/multist/linkedList.cpp"
+// #include "linkedList/multiList/linkedList.cpp"
 // #include "heap/heap.cpp"
-// #include "linkedList/multist/studentList.cpp"
-// #include "linkedList/multist/courseList.cpp"
-// #include "include/multist/studentList.h"
-// #include "include/multist/courseList.h"
+// #include "linkedList/multiList/studentList.cpp"
+// #include "linkedList/multiList/courseList.cpp"
+#include "include/multiList/studentList.h"
+#include "include/multiList/courseList.h"
 // #include "include/stack/stack.h"
 // #include "stack/staticStack.cpp"
 // #include "queue/queue.cpp"
@@ -32,30 +32,35 @@ using namespace std;
 
 int main() {
 
-    // CourseLinkedList courseList;
+    CourseLinkedList courseList;
   
-    // courseList.insert("maths");
-    // courseList.insert("physics");
+    courseList.insert("maths");
+    courseList.insert("physics");
 
-    // Course* math = courseList.find("maths");
-    // Course* physics = courseList.find("physics");
+    Course* math = courseList.find("maths");
+    Course* physics = courseList.find("physics");
     
-    // math->studentList = new StudentLinkedList();
-    // math->studentList->insert("Alice");
-    // math->studentList->insert("bob");
+    math->studentList = new StudentLinkedList();
+    math->studentList->insert("Alice");
+    math->studentList->insert("bob");
 
-    // math->studentList->remove("bob");
-
-    // physics->studentList = new StudentLinkedList();
-    
-    // courseList.remove("physics");
+    math->studentList->remove("bob");
 
 
-    // Student* alice = math->studentList->find("Alice");
-    // cout << "Found student: " << alice->name << endl;
+    physics->studentList = new StudentLinkedList();
+    physics->studentList->insert("cha");
+    physics->studentList->insert("fha");
 
-    // math->studentList->print(); 
-    // courseList.print();
+    courseList.remove("physics");
+    physics->studentList->remove("cha");
+
+
+
+    Student* alice = math->studentList->find("Alice");
+    cout << "Found student: " << alice->name << endl;
+
+    math->studentList->print(); 
+    courseList.print();
 
     // staticStack stack;
     // stack.push(10);
@@ -348,15 +353,15 @@ int main() {
 
     // q.print();
 
-    linkedList l;
-    l.insert(4);
-    l.insert(6);
-    l.insert(2);
-    l.insert(1);
-    Node* temp = l.head;
-    l.printRecursionForward(temp);
-    cout << endl;
-    l.printRecursionBackward(temp);
+    // linkedList l;
+    // l.insert(4);
+    // l.insert(6);
+    // l.insert(2);
+    // l.insert(1);
+    // Node* temp = l.head;
+    // l.printRecursionForward(temp);
+    // cout << endl;
+    // l.printRecursionBackward(temp);
 
 
 

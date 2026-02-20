@@ -1,6 +1,6 @@
 #include <string>
-#include "../../include/multist/courseList.h"
-#include "../../include/multist/course.h"
+#include "../../include/multiList/courseList.h"
+#include "../../include/multiList/course.h"
 using namespace std;
 
 #include <iostream>
@@ -57,6 +57,30 @@ Course* CourseLinkedList::find(const std::string& courseName) {
 
 void CourseLinkedList::remove(const std::string& courseName) {
     if (!head) return;
+
+    Course* temp = head;
+    bool found = false;
+
+    while (temp != nullptr)
+    {
+        if (temp->courseName == courseName) {
+            found = true;
+            Student* studentList = temp->studentList->head;
+            while (studentList != nullptr)
+            {
+                Student* next = studentList->nextStudent;  
+                delete studentList;
+                studentList = next;
+            }
+        }
+        temp = temp->nextCours;
+    }
+
+    if (!found){
+        cout << "No element";
+        return;
+    }
+    
 
     while (head && head->courseName == courseName) {
         Course* del = head;

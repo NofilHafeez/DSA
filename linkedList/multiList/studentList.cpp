@@ -1,5 +1,5 @@
-#include "../../include/multist/student.h"
-#include "../../include/multist/studentList.h"
+#include "../../include/multiList/student.h"
+#include "../../include/multiList/studentList.h"
 
 #include <iostream>
 
