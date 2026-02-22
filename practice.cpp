@@ -5,6 +5,8 @@ using namespace std;
 #include <cmath>
 #include <string>
 // #include <algorithm>
+#include <random>
+// #include <algorithm>
 // #include "models/searchingAlgo.cpp"
 // #include "models/sortingAlgo.cpp"
 // #include "include/single/linkedList.h"
@@ -24,7 +26,7 @@ using namespace std;
 // #include "mergeSort/mergeSort.cpp"
 // #include "queue/dynamicQueue.cpp"
 // #include "queue/circularQueue.cpp"
-// #include "quickSort/quickSort.cpp"
+#include "quickSort/quickSort.cpp"
 
 
 
@@ -32,35 +34,35 @@ using namespace std;
 
 int main() {
 
-    CourseLinkedList courseList;
+    // CourseLinkedList courseList;
   
-    courseList.insert("maths");
-    courseList.insert("physics");
+    // courseList.insert("maths");
+    // courseList.insert("physics");
 
-    Course* math = courseList.find("maths");
-    Course* physics = courseList.find("physics");
+    // Course* math = courseList.find("maths");
+    // Course* physics = courseList.find("physics");
     
-    math->studentList = new StudentLinkedList();
-    math->studentList->insert("Alice");
-    math->studentList->insert("bob");
+    // math->studentList = new StudentLinkedList();
+    // math->studentList->insert("Alice");
+    // math->studentList->insert("bob");
 
-    math->studentList->remove("bob");
-
-
-    physics->studentList = new StudentLinkedList();
-    physics->studentList->insert("cha");
-    physics->studentList->insert("fha");
-
-    courseList.remove("physics");
-    physics->studentList->remove("cha");
+    // math->studentList->remove("bob");
 
 
+    // physics->studentList = new StudentLinkedList();
+    // physics->studentList->insert("cha");
+    // physics->studentList->insert("fha");
 
-    Student* alice = math->studentList->find("Alice");
-    cout << "Found student: " << alice->name << endl;
+    // courseList.remove("physics");
+    // physics->studentList->remove("cha");
 
-    math->studentList->print(); 
-    courseList.print();
+
+
+    // Student* alice = math->studentList->find("Alice");
+    // cout << "Found student: " << alice->name << endl;
+
+    // math->studentList->print(); 
+    // courseList.print();
 
     // staticStack stack;
     // stack.push(10);
@@ -120,7 +122,13 @@ int main() {
 
     // dq.print();
 
-    // vector<int> arr = {5, 2, 4, 1, 3, 40, 100 ,6, 150};
+    // vector<int> arr = {10, 1, 9, 2, 8, 3, 7, 4, 6, 5};
+
+    // // {5, 5, 5, 5, 5}
+    // // {1, 2, 3, 4, 5}
+    // // {5, 4, 3, 2, 1}
+    // // {2, 1}
+
 
     // QuickSort ms;
     // ms.sort(arr);
@@ -128,6 +136,35 @@ int main() {
     // for (int x : arr) {
     //     cout << x << " ";
     // }
+
+    QuickSort qs;
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dist(-1000, 1000);
+
+    for (int t = 0; t < 10000; t++) {
+        vector<int> a(50);
+
+        for (int i = 0; i < 50; i++)
+            a[i] = dist(gen);
+
+        vector<int> b = a;
+
+        qs.sort(a);
+        sort(b.begin(), b.end());
+
+        if (a != b) {
+            cout << "Mismatch found!\n";
+            return 0;
+        }
+    }
+
+    cout << "All tests passed!\n";
+
+
+
+
+
 
 
 

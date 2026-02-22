@@ -13,12 +13,14 @@ public:
 
 private:
     void quickSort(vector<int>& arr, int left, int right) {
-        if (left >= right)
+        if (left > right)
             return;
 
-        int j = partition(arr, left, right);
-        quickSort(arr, left, j - 1);
-        quickSort(arr, j + 1, right);   
+        int pivot = partition(arr, left, right);
+        // int pivot = setPivot(arr, left, right);
+
+        quickSort(arr, left, pivot - 1);
+        quickSort(arr, pivot + 1, right);   
 
     }
 
@@ -47,4 +49,35 @@ private:
             swap(arr[left], arr[j]);
             return j;
         }
+
+         int setPivot(vector<int>& arr, int left, int right) {
+            int pivot = (left + right) / 2;
+             
+            while (left  < right) {
+                
+                while (pivot != right) {
+                    if (arr[pivot] > arr[right]) {
+                        swap(arr[pivot], arr[right]);
+                        pivot = right;
+                        // break;
+                    } else {
+                        right--;
+                    }
+                }
+
+                while (pivot != left) {
+                    if (arr[pivot] < arr[left]) {
+                        swap(arr[pivot], arr[left]);
+                        pivot = left;
+
+                        // break;
+                    } else {
+                        left++;
+                    }
+                }
+            }
+            return pivot;
+        }
 };
+
+     
