@@ -27,6 +27,7 @@ using namespace std;
 // #include "queue/dynamicQueue.cpp"
 // #include "queue/circularQueue.cpp"
 #include "quickSort/quickSort.cpp"
+#include "BinarySearchTree/bst.cpp"
 
 
 
@@ -137,29 +138,29 @@ int main() {
     //     cout << x << " ";
     // }
 
-    QuickSort qs;
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dist(-1000, 1000);
+    // QuickSort qs;
+    // random_device rd;
+    // mt19937 gen(rd());
+    // uniform_int_distribution<> dist(-1000, 1000);
 
-    for (int t = 0; t < 10000; t++) {
-        vector<int> a(50);
+    // for (int t = 0; t < 10000; t++) {
+    //     vector<int> a(50);
 
-        for (int i = 0; i < 50; i++)
-            a[i] = dist(gen);
+    //     for (int i = 0; i < 50; i++)
+    //         a[i] = dist(gen);
 
-        vector<int> b = a;
+    //     vector<int> b = a;
 
-        qs.sort(a);
-        sort(b.begin(), b.end());
+    //     qs.sort(a);
+    //     sort(b.begin(), b.end());
 
-        if (a != b) {
-            cout << "Mismatch found!\n";
-            return 0;
-        }
-    }
+    //     if (a != b) {
+    //         cout << "Mismatch found!\n";
+    //         return 0;
+    //     }
+    // }
 
-    cout << "All tests passed!\n";
+    // cout << "All tests passed!\n";
 
 
 
@@ -399,6 +400,22 @@ int main() {
     // l.printRecursionForward(temp);
     // cout << endl;
     // l.printRecursionBackward(temp);
+
+
+    BST tree;
+    tree.root = tree.insertSecond(10, tree.root);
+    tree.root = tree.insertSecond(20, tree.root);
+    tree.root = tree.insertSecond(30, tree.root);
+    tree.root = tree.insertSecond(5, tree.root);
+    tree.root = tree.insertSecond(15, tree.root);
+    tree.root = tree.insertSecond(6, tree.root);
+
+
+
+
+    tree.display(tree.root);
+    // tree.search(tree.root, 15);
+
 
 
 
