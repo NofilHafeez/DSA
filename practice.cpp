@@ -413,8 +413,8 @@ int main() {
 
 
 
-    tree.display(tree.root);
-    // tree.search(tree.root, 15);
+    // tree.display(tree.root);
+    tree.inorderSearch(tree.root, 15);
 
 
 

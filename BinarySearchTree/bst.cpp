@@ -8,13 +8,7 @@ struct Node
 class BST {
 public:
     Node* root = nullptr;
-    // Node* tempRoot = nnullptr;
 
-    // BST() {
-    //     root = nullptr;   
-    // }
-
-    
     void insert(int data) {
         if (root == nullptr) {
             root = new Node{data, nullptr, nullptr};
@@ -23,25 +17,25 @@ public:
         } else if (root->data > data && root->left == nullptr) {
             root->left = new Node{data, nullptr, nullptr};
         } else {
+            Node* temp = root;
+            while (temp != nullptr)
+            {
+               if (temp->data < data && temp->right != nullptr) {
+                    temp = temp->right;
+               } else if (temp->data > data && temp->left != nullptr) {
+                    temp = temp->left;
+               } else {
+                    if (temp->data < data) {
+                        temp->right = new Node{data, nullptr, nullptr};
+                    } else {
+                        temp->left = new Node{data, nullptr, nullptr};
+                    }
+                    break;
+               }
+            }
+        }  
+        }      
 
-        Node* temp = root;
-        while (temp != nullptr)
-        {
-           if (temp->data < data && temp->right != nullptr) {
-                temp = temp->right;
-           } else if (temp->data > data && temp->left != nullptr) {
-                temp = temp->left;
-           } else {
-                if (temp->data < data) {
-                    temp->right = new Node{data, nullptr, nullptr};
-                } else {
-                    temp->left = new Node{data, nullptr, nullptr};
-                }
-                break;
-           }
-        }
-    }
-    }
 
     Node* insertSecond(int data, Node* temp = nullptr) {
         if (temp == nullptr) {
@@ -55,18 +49,25 @@ public:
         return temp;
     }
 
-    void display(Node* root) {
+
+    void deleteNode(int value) {  
+        if (root == nullptr) {
+            return;
+        }
+        inorderSearch(root, value);
+    }
+
+
+    void inorderDisplay(Node* root) {
         if (root == nullptr) 
             return;
 
         cout << root->data << " ";
- 
-        display(root->left);
-        display(root->right);
-        
+        inorderDisplay(root->left);
+        inorderDisplay(root->right);
     }
 
-    void search(Node* root, int data) {
+    void inorderSearch(Node* root, int data) {
         if (root == nullptr) {
             cout << "Not found" << endl;
             return;
@@ -76,13 +77,8 @@ public:
             cout << "Found: " << root->data << endl;
             return;
         }
- 
-        search(root->left, data);
-        search(root->right, data);
-        
+
+        inorderSearch(root->left, data);
+        inorderSearch(root->right, data);     
     }
-
-    
-    
 };
-
