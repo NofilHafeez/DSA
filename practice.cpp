@@ -414,7 +414,12 @@ int main() {
 
 
     // tree.display(tree.root);
-    tree.inorderSearch(tree.root, 15);
+    // tree.inorderSearch(tree.root, 15);
+
+
+    tree.deleteNode(30);
+    // cout << tree.inorderSuccessor(tree.root->right)->data << endl;
+    tree.inorderDisplay(tree.root);
 
 
 
