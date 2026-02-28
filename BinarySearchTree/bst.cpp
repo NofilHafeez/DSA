@@ -50,68 +50,82 @@ public:
     }
 
 
-    void deleteNode(int value) {  
-        if (root == nullptr) {
-            return;
+ void deleteNode(int value) {
+
+    if (root == nullptr)
+        return;
+
+    Node* parent = nullptr;
+    Node* current = root;
+
+    //  SEARCH NODE
+    while (current != nullptr && current->data != value) {
+        parent = current;
+
+        if (value < current->data)
+            current = current->left;
+        else
+            current = current->right;
+    }
+
+    if (current == nullptr)
+        return; // not found
+
+
+    //  CASE 1: LEAF NODE
+    if (current->left == nullptr && current->right == nullptr) {
+
+        if (current == root)
+            root = nullptr;
+        else if (parent->left == current)
+            parent->left = nullptr;
+        else
+            parent->right = nullptr;
+
+        delete current;
+    }
+
+    //  CASE 2: ONE CHILD
+    else if (current->left == nullptr || current->right == nullptr) {
+
+        Node* child;
+
+        if (current->left != nullptr)
+            child = current->left;
+        else
+            child = current->right;
+
+        if (current == root)
+            root = child;
+        else if (parent->left == current)
+            parent->left = child;
+        else
+            parent->right = child;
+
+        delete current;
+    }
+
+    //  CASE 3: TWO CHILDREN
+    else {
+
+        Node* parentSucc = current;
+        Node* successor = current->right;
+
+        while (successor->left != nullptr) {
+            parentSucc = successor;
+            successor = successor->left;
         }
-        
-        Node* parent = nullptr;
-        Node* current = root;
 
-        while (current != nullptr) {
-            if (current->data == value) {
-                Node* parentSucc;
-                Node* successor = inorderSuccessor( current, parentSucc);
-                // Node* predescessor = inoderPredecessor(current);
+        current->data = successor->data;
 
+        if (parentSucc->left == successor)
+            parentSucc->left = successor->right;
+        else
+            parentSucc->right = successor->right;
 
-                // if (predescessor != nullptr) {
-                //     current->data = predescessor->data;
-                //     if (parent != nullptr) {
-                //         parent->left = nullptr;
-                //     }
-
-                //     delete predescessor;
-                //     predescessor = nullptr;
-                //     break;
-                // } else
-                 if (successor != nullptr) {
-                    Node* temp = current;
-                    current->data = successor->data;
-                    if (parentSucc->left == successor)
-                        parentSucc->left = successor->right;
-                    else
-                        parentSucc->right = successor->right;
-
-                    delete successor;
-                    successor = nullptr;
-                    break;
-                } 
-
-        } else if (current->data < value) {
-                    parent = current;
-                    current = current->right;
-
-                    if (current->right == nullptr && current->left == nullptr) {
-                        parent->right = nullptr;
-                        delete current;
-                        current = nullptr;
-                        break;
-                    }
-                } else {
-                    parent = current;
-                    current = current->left;
-
-                    if (current->right == nullptr && current->left == nullptr) {
-                        parent->left = nullptr;
-                        delete current;
-                        current = nullptr;
-                        break;
-                    }
-                }
-            }
+        delete successor;
+    }
 }
-
 
     void inorderDisplay(Node* root) {
         if (root == nullptr) 
@@ -120,33 +134,6 @@ public:
         cout << root->data << " ";
         inorderDisplay(root->left);
         inorderDisplay(root->right);
-    }
-
-   Node* inorderSuccessor(Node* node, Node*& parentSucc) {
-    parentSucc = node;
-    Node* temp = node->right;
-
-    if (temp == nullptr)
-        return nullptr;
-
-    while (temp->left != nullptr) {
-        parentSucc = temp;
-        temp = temp->left;
-    }
-
-    return temp;
-}
-
-    Node* inoderPredecessor(Node* node) {
-        Node* temp = node->left;
-         if (temp == nullptr) {
-            return nullptr;
-        }
-        while (temp != nullptr && temp->right != nullptr)
-        {
-            temp = temp->right;
-        }
-        return temp;
     }
 
     void inorderSearch(Node* root, int data) {

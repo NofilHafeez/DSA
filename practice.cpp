@@ -405,27 +405,24 @@ int main() {
     BST tree;
     tree.root = tree.insertSecond(10, tree.root);
     tree.root = tree.insertSecond(20, tree.root);
-    tree.root = tree.insertSecond(30, tree.root);
+    // tree.root = tree.insertSecond(30, tree.root);
     tree.root = tree.insertSecond(5, tree.root);
-    tree.root = tree.insertSecond(15, tree.root);
-    tree.root = tree.insertSecond(6, tree.root);
+    tree.root = tree.insertSecond(8, tree.root);
+    tree.root = tree.insertSecond(9, tree.root);
+    // tree.root = tree.insertSecond(25, tree.root);
+
+    // tree.root = tree.insertSecond(6, tree.root);
+    // tree.root = tree.insertSecond(4, tree.root);
 
 
 
-
-    // tree.display(tree.root);
-    // tree.inorderSearch(tree.root, 15);
+    // // tree.inorderSearch(tree.root, 15);
 
 
-    tree.deleteNode(30);
+    tree.deleteNode(9);
     // cout << tree.inorderSuccessor(tree.root->right)->data << endl;
     tree.inorderDisplay(tree.root);
 
-
-
-
-
-    
 
 
     return 0;
