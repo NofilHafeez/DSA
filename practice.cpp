@@ -19,7 +19,7 @@ using namespace std;
 #include "include/multiList/studentList.h"
 #include "include/multiList/courseList.h"
 // #include "include/stack/stack.h"
-// #include "stack/staticStack.cpp"
+#include "stack/staticStack.cpp"
 // #include "queue/queue.cpp"
 // #include "hashing/openHashing.cpp"
 // #include "hashing/closeHashing.cpp"
@@ -28,6 +28,7 @@ using namespace std;
 // #include "queue/circularQueue.cpp"
 #include "quickSort/quickSort.cpp"
 #include "BinarySearchTree/bst.cpp"
+#include "expressionTree/convertToPostfix.cpp"
 
 
 
@@ -402,13 +403,13 @@ int main() {
     // l.printRecursionBackward(temp);
 
 
-    BST tree;
-    tree.root = tree.insertSecond(10, tree.root);
-    tree.root = tree.insertSecond(20, tree.root);
-    // tree.root = tree.insertSecond(30, tree.root);
-    tree.root = tree.insertSecond(5, tree.root);
-    tree.root = tree.insertSecond(8, tree.root);
-    tree.root = tree.insertSecond(9, tree.root);
+    // BST tree;
+    // tree.root = tree.insertSecond(10, tree.root);
+    // tree.root = tree.insertSecond(20, tree.root);
+    // // tree.root = tree.insertSecond(30, tree.root);
+    // tree.root = tree.insertSecond(5, tree.root);
+    // tree.root = tree.insertSecond(8, tree.root);
+    // tree.root = tree.insertSecond(9, tree.root);
     // tree.root = tree.insertSecond(25, tree.root);
 
     // tree.root = tree.insertSecond(6, tree.root);
@@ -419,9 +420,18 @@ int main() {
     // // tree.inorderSearch(tree.root, 15);
 
 
-    tree.deleteNode(9);
-    // cout << tree.inorderSuccessor(tree.root->right)->data << endl;
-    tree.inorderDisplay(tree.root);
+    // tree.deleteNode(9);
+    // tree.inorderDisplay(tree.root);
+
+
+    string infix;
+    cin >> infix;
+
+    staticStack s;
+    // string postFix = convert(infix, s);
+    string postFix = convertWithBrackets(infix, s);
+
+    cout << postFix << endl;
 
     
 

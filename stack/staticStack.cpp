@@ -3,23 +3,28 @@ using namespace std;
 
 class staticStack
 {
-private:
-    int arr[5];
-    int top = 0;
+// private:
+    
 public:
+    char arr[5];
+    int top = 0;
     staticStack() {
         // arr[size];
     }
 
-    void push(int value) {
+    void push(char value) {
     arr[top] = value;
     top++;
 }
 
-void peek() {
-    cout << arr[top - 1] << endl;
-}
+// void peek() {
+//     cout << arr[top - 1] << endl;
+// }
 
+char peek(int index = 1) {
+    // cout << arr[top - index] << endl;
+    return arr[top - index];
+}
 
 void pop() {
     arr[top - 1] = 0;
