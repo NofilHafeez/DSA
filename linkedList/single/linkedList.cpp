@@ -66,6 +66,9 @@ void linkedList::printRecursionBackward(Node* temp) {
 }
 
 
+// ✔ Deletes all occurrences
+// ✔ Handles head deletion correctly
+// ✔ Safe traversal
 void linkedList::remove(int value) {
     if (!head) return;
 
@@ -82,8 +85,25 @@ void linkedList::remove(int value) {
             current->next = del->next;
             delete del;
         } else {
-            current = current->next;
+            current  = current->next;
         }
+    }
+}
+
+
+// Best for removing a known node pointer
+void linkedList::removeBetter(Node* entry) {
+    if (!head) return;
+
+    Node** indirect = &head;
+
+    while((*indirect) != entry && *indirect) {
+        indirect = &(*indirect)->next;
+    }
+
+    if (*indirect) {
+        *indirect = entry->next;
+        delete entry;
     }
 }
 
