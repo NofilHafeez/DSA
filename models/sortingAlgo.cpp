@@ -75,27 +75,32 @@ public:
 
 
     void insertionSort() { //{42, 43, 525, 12}
+// Left side = sorted
+// Right side = unsorted
+// [5 12 23 42] | [43 525 90 34]
+//  sorted        unsorted
         int arr[10] = {42 , 525 , 43 , 12 , 5 , 23 , 1 , 90 , 34 , 76};
-        int n = 10;
+        int n = 10;     // 42 43 525 12 
+                        // 42 43 525 525
+                        // 42 43 43 525
+                        // 42 42 43 525
+                        // 12 42 43 525
+
         for (int i = 1; i < n ; i++)
         {
-            for (int j = 0; j < i; j++)
+            int temp = arr[i];
+            int j = i;
+            for (; j > 0 && arr[j - 1] > temp; j--)
             {
-                if(arr[i] < arr[j]) {
-                    // swap arr[i] and arr[j]
-                    int temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
+                arr[j] = arr[j - 1];
             }
-            
+            arr[j] = temp;
         }
 
-         for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++)
         {
             cout << arr[i] << endl;
         } 
-        
     }
     
 };

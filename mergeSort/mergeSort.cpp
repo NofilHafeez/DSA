@@ -34,7 +34,7 @@ private:
         while (i <= mid && j <= right) {
             if (temp[i] <= temp[j])
                 arr[k++] = temp[i++];
-            else
+            else    
                 arr[k++] = temp[j++];
         }
 

@@ -424,15 +424,16 @@ int main() {
     // tree.inorderDisplay(tree.root);
 
 
-    string infix;
-    cin >> infix;
+    // string infix;
+    // cin >> infix;
 
-    staticStack s;
-    // string postFix = convert(infix, s);
-    string postFix = convertWithBrackets(infix, s);
+    // staticStack s;
+    // // string postFix = convert(infix, s);
+    // string postFix = convertWithBrackets(infix, s);
 
-    cout << postFix << endl;
+    // cout << postFix << endl;
 
+    
     
 
 
