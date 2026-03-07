@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include <string>
 
 class closeHashing {
 public:
@@ -18,6 +19,39 @@ public:
     unsigned int hashFunction(int key) {
         return key % TABLE_SIZE;
     }
+
+    unsigned int hashFunctionFloat(float key) {
+        return static_cast<int>(key * 1000) % TABLE_SIZE;
+        // instead of taking floor or ceil which makes the chances of collision higher, we can multiply 
+        // the float by a power of 10 to preserve the decimal part and then take modulo with table size.
+        // this way we can get a better distribution of hash values for float keys.
+
+
+        // ex: floor(16.42) % 13 = 3
+        // ex: floor(16.32) % 13 = 3 
+        // ex: floor(16.12) % 13 = 3 // same leading more collision
+
+        
+        // cout <<  static_cast<int>(16.42 * 1000) << endl; // 16420
+        // cout <<  static_cast<int>(16.32 * 1000) << endl; // 16320
+        // cout <<  static_cast<int>(16.12 * 1000) << endl; // 16120
+
+    }
+
+    unsigned int hashFunctionString(string key) {
+        unsigned int hash = 0;
+
+        for(char c : key)
+            hash = hash * 31 + c; // hash = c1 × 31^(n−1) + c2 × 31^(n−2) + ...
+            // but 31 usually gives better hash distribution. to avoid chances of collision we can use prime number as multiplier
+            // like ab -> 'a' * 31^1 + 'b' * 31^0 = 3105
+            // and ba ->  'b' * 31^1 + 'a' * 31^0 = 3135
+            // 31 is commonly used for string distribution
+
+        return hash % TABLE_SIZE;
+    }
+
+
 
     void insertLinear(int key) {
         for (int i = 0; i < TABLE_SIZE; i++) {

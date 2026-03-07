@@ -433,10 +433,14 @@ int main() {
 
     // cout << postFix << endl;
 
+
+    cout <<  static_cast<int>(16.42 * 1000) << endl;
+    cout <<  static_cast<int>(16.32 * 1000) << endl;
+    cout <<  static_cast<int>(16.12 * 1000) << endl;
+
     
-    
 
 
 
-    return 0;
+    return -1;
 }
