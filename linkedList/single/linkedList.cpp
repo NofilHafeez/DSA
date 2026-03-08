@@ -107,6 +107,38 @@ void linkedList::removeBetter(Node* entry) {
     }
 }
 
+//  Node* linkedListt::swapPairs(ListNode* head) {
+//         if (head == nullptr) return nullptr;
+
+//         if (head->next == nullptr) {
+//             return head;
+//         }
+//         ListNode* newHead = head->next;
+//         ListNode* a = nullptr;
+//         ListNode* b = nullptr;
+//         ListNode* curr = head;
+//         ListNode* prev = nullptr;
+        
+        
+//         while (curr != nullptr && curr->next != nullptr) {
+//             a = curr;
+//             b = curr->next;
+//             // prev = curr;
+//             if (a != nullptr && b != nullptr) {
+//                 a->next = b->next;
+//                 b->next = a;
+//                 // prev->next = b;
+//             }
+
+//             if (prev != nullptr)
+//                 prev->next = b;
+
+//             prev = curr;
+//             curr = a -> next;
+//         }
+//         return newHead;
+//     }
+
 void linkedList::searching(int value) {
     Node* current = head;
     while (current) {

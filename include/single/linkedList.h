@@ -24,5 +24,6 @@ public:
     void print();
     void printRecursionForward(Node*);
     void printRecursionBackward(Node*);
+    Node* swapPairs(Node*);
     void searching(int);
 };
