@@ -99,7 +99,7 @@ void linkedList::removeBetter(Node* entry) {
 
     while((*indirect) != entry && *indirect) {
         indirect = &(*indirect)->next;
-    }
+    } 
 
     if (*indirect) {
         *indirect = entry->next;
@@ -150,3 +150,111 @@ void linkedList::searching(int value) {
     }
     cout << "Value " << value << " not found\n";
 }
+
+
+// /**
+//  * Definition for singly-linked list.
+//  * struct ListNode {
+//  *     int val;
+//  *     ListNode *next;
+//  *     ListNode() : val(0), next(nullptr) {}
+//  *     ListNode(int x) : val(x), next(nullptr) {}
+//  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+//  * };
+//  */
+// class Solution {
+// public:
+//     ListNode* reverseKGroup(ListNode* head, int k) {
+//         if (!head || k == 1) return head;
+
+//         ListNode* curr = head;
+
+
+
+//         ListNode* prev = nullptr;
+//         ListNode* a = nullptr;
+//         ListNode* back = nullptr;
+//         ListNode* middle = nullptr;
+//         ListNode* newHead = nullptr;
+//         int n= 0;
+
+//         while (curr!=nullptr && k >= n) {
+//             n++;
+//             a = curr;
+//             if (n == k) {
+//                 if (newHead == nullptr) {
+//                     newHead = a; 
+//                 }
+//                 if (prev->next == a ) {
+//                     prev->next = a->next;
+//                     a->next = prev; 
+//                 } else {
+//                     middle = prev -> next;
+//                     prev->next = a->next;
+//                     a->next = middle;
+//                     middle->next = prev;
+//                 }
+
+//                 if (back != nullptr) {
+//                     back->next = a;
+//                 }
+//                 back = prev;
+
+//                 n = 0;
+//                 curr = prev->next;
+//                 prev = nullptr;
+//                 continue;
+//             }
+//             if (prev == nullptr) prev = curr;
+//             curr = curr -> next;
+//         }
+
+//         return newHead;
+        
+//     }
+// };
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* modifiedList(vector<int>& nums, ListNode* head) {
+        if (!head) return nullptr;
+
+        ListNode* del = nullptr;
+        
+        while (head && i < nums.size()) {
+            if (head->val == nums[i])
+            del = head;
+            head = head->next;
+            delete del;
+            del = nullptr;
+        }
+
+       
+
+       ListNode* current = head;
+       for(int j = 0; j< nums.size();j++) {
+        while (current && current->next) {
+            if (current->next->val == nums[j]) {
+                del = current->next;
+                current->next = del->next;
+                // delete del;
+                del =nullptr;
+            } else {
+                current  = current->next;
+            }
+        }
+       }
+        return head;
+  
+    }
+};

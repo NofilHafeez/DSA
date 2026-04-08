@@ -50,7 +50,7 @@ public:
     }
 
 
- void deleteNode(int value) {
+    void deleteNode(int value) {
 
     if (root == nullptr)
         return;
