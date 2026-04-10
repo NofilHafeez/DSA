@@ -19,7 +19,7 @@ using namespace std;
 // #include "include/multiList/studentList.h"
 // #include "include/multiList/courseList.h"
 // #include "include/stack/stack.h"
-// #include "stack/staticStack.cpp"
+#include "stack/staticStack.cpp"
 // #include "queue/queue.cpp"
 // #include "hashing/openHashing.cpp"
 // #include "hashing/closeHashing.cpp"
@@ -29,7 +29,8 @@ using namespace std;
 // #include "quickSort/quickSort.cpp"
 // #include "BinarySearchTree/bst.cpp"
 #include "BinarySearchTreeAVL/bstAVL_116.cpp"
-// #include "expressionTree/convertToPostfix.cpp"
+#include "expressionTree/convertToPostfix.cpp"
+
 
 
 
@@ -417,42 +418,40 @@ int main() {
     // tree.root = tree.insertSecond(4, tree.root);
 
 
-    BST tree;
-    tree.root = tree.insertSecond(10, tree.root);
-    tree.root = tree.insertSecond(20, tree.root);
-    tree.root = tree.insertSecond(30, tree.root); 
-    tree.root = tree.insertSecond(40, tree.root);
-    tree.root = tree.insertSecond(50, tree.root); 
+    // BST tree;
+    // tree.root = tree.insertSecond(10, tree.root);
+    // tree.root = tree.insertSecond(20, tree.root);
+    // tree.root = tree.insertSecond(30, tree.root); 
+    // tree.root = tree.insertSecond(40, tree.root);
+    // tree.root = tree.insertSecond(50, tree.root); 
 
 
-        // tree.inorderSearch(tree.root, 15);
+    //     // tree.inorderSearch(tree.root, 15);
 
 
-    tree.deleteNode(10);
-    tree.deleteNode(40);
-    tree.deleteNode(50);
-    tree.deleteNode(20);
+    // tree.deleteNode(10);
+    // tree.deleteNode(40);
+    // tree.deleteNode(50);
+    // tree.deleteNode(20);
 
     // tree.deleteNode(80);
     // tree.deleteNode(130);
 
-    tree.inorderDisplay(tree.root);
+    // tree.inorderDisplay(tree.root);
 
 
 
-    // string infix;
-    // cin >> infix;
+    string infix;
+    cin >> infix;
 
-    // staticStack s;
-    // // string postFix = convert(infix, s);
-    // string postFix = convertWithBrackets(infix, s);
+    staticStack s;
+    // string postFix = convert(infix, s);
+    string postFix = convertWithBrackets(infix, s);
+    cout << postFix << endl;
+    double result = postFixEval(postFix);
+    cout << result << endl;
 
-    // cout << postFix << endl;
 
-
-    // cout <<  static_cast<int>(16.42 * 1000) << endl;
-    // cout <<  static_cast<int>(16.32 * 1000) << endl;
-    // cout <<  static_cast<int>(16.12 * 1000) << endl;
 
     
 

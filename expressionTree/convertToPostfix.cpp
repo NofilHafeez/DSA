@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
+#include <stack>
 
 int precedence(char opr) {
     switch (opr) {
@@ -31,7 +32,7 @@ int precedence(char opr) {
     }
 }
 
-    
+
 string convert(string infix, staticStack s) {
     string postfix = "";
     
@@ -86,7 +87,7 @@ string convertWithBrackets(string infix, staticStack s) {
                 insideBrackets = false;
                 while (s.top >= bracAt)
                 {
-                    cout << s.peek() << "last opr"<< endl;
+                    // cout << s.peek() << "last opr"<< endl;
                     postfix += s.peek();
                     s.pop();
                 }
@@ -102,7 +103,7 @@ string convertWithBrackets(string infix, staticStack s) {
                             if (precedence(infix[i]) <= precedence(s.peek())) {
                                 postfix += s.peek(); // add to postfix
                                 s.pop();
-                                cout << s.peek() << endl;
+                                // cout << s.peek() << endl;
                             } 
                         }
                         s.push(infix[i]);
@@ -136,4 +137,73 @@ string convertWithBrackets(string infix, staticStack s) {
     }
     
     return postfix;
+}
+
+
+double postFixEval(string postFix) {
+    string newPostfix = "";
+    stack<double> s;
+
+    for (int i = 0; i < postFix.length(); i++)
+    {
+        if (isalpha(postFix[i])) {
+            cout << " enter values: " <<endl;
+            string input;
+            cin >> input;
+            if (input.length() > 1) {
+                newPostfix += " " + input + " "; // add space after multi-digit number
+            } else {
+                newPostfix += input; // single-digit number
+            }
+        } else {
+        newPostfix += postFix[i];
+        }
+    }
+
+    cout << newPostfix <<endl;
+    
+    for (int i = 0; i < newPostfix.length(); i++)
+    {
+
+        // for multi numbers
+        // (A+B)*(C-D)
+        double result;
+        if (newPostfix[i] == ' ' && isdigit(newPostfix[i + 2])) {
+            string doubleStr = "";
+            for (int j = i + 1; j < 1000; j++) {
+                if (newPostfix[j] == ' ') {
+                    break;
+                } else if (isdigit(newPostfix[j])) {
+                    doubleStr += newPostfix[j];
+                }
+
+            }
+            cout << doubleStr <<endl;
+            int num = stoi(doubleStr);
+            s.push(num);
+            i += doubleStr.length() + 1; 
+            cout << "i: " << i << endl ;
+
+        // for single
+        } else if (isdigit(newPostfix[i])) {
+            s.push(newPostfix[i] - '0');
+        } else {
+            double val1 = s.top(); s.pop();
+            double val2 = s.top(); s.pop();
+            if (newPostfix[i] == '*') {
+                result = val2 * val1;
+                s.push(result);
+            } else if (newPostfix[i] == '/') {
+                result = val2 / val1;
+                s.push(result);
+            } else if (newPostfix[i] == '+') {
+                result = val2 + val1;
+                s.push(result);
+            } else if (newPostfix[i] == '-') {
+                result = val2 - val1;
+                s.push(result);
+            }
+        }
+    }
+    return s.top();
 }
