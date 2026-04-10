@@ -29,7 +29,7 @@ using namespace std;
 // #include "quickSort/quickSort.cpp"
 // #include "BinarySearchTree/bst.cpp"
 #include "BinarySearchTreeAVL/bstAVL_116.cpp"
-#include "expressionTree/convertToPostfix.cpp"
+#include "expressionTree/expressionTree.cpp"
 
 
 
@@ -444,12 +444,16 @@ int main() {
     string infix;
     cin >> infix;
 
-    staticStack s;
+    Expression expr;
     // string postFix = convert(infix, s);
-    string postFix = convertWithBrackets(infix, s);
+    string postFix = expr.convertWithBrackets(infix);
     cout << postFix << endl;
-    double result = postFixEval(postFix);
+    double result = expr.postFixEval(postFix);
     cout << result << endl;
+
+    Expression::ExpNode* root = expr.createNode(postFix);
+    cout << "Inorder traversal of expression tree: ";
+    expr.inorder(root);
 
 
 
