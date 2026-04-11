@@ -6,6 +6,8 @@ using namespace std;
 #include <string>
 // #include <algorithm>
 #include <random>
+#include <stack>
+#include <queue>
 // #include <algorithm>
 // #include "models/searchingAlgo.cpp"
 // #include "models/sortingAlgo.cpp"
@@ -31,6 +33,8 @@ using namespace std;
 #include "BinarySearchTreeAVL/bstAVL_116.cpp"
 #include "expressionTree/expressionTree.cpp"
 #include "queue/queueWithStack.cpp"
+#include "stack/reverseStack.cpp"
+#include "queue/reverseQueue.cpp"
 
 
 
@@ -457,21 +461,49 @@ int main() {
     // expr.inorder(root);
 
 
-    enqueue(1);
-    enqueue(2);
-    enqueue(3);
-    enqueue(4);
+    // enqueue(1);
+    // enqueue(2);
+    // enqueue(3);
+    // enqueue(4);
 
-    dequeue();
-    dequeue();
+    // dequeue();
+    // dequeue();
 
-    enqueue(7);
-    enqueue(9);
+    // enqueue(7);
+    // enqueue(9);
 
 
 
-    display();
+    // display();
 
+
+    stack<int> s;
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.push(4);
+
+    stack<int> reversed = reverse(s);
+    cout << "Reversed stack: ";
+    while (!reversed.empty()) {
+        cout << reversed.top() << " ";
+        reversed.pop();
+    }
+
+    queue<int> q;
+    q.push(4);
+    q.push(3);
+    q.push(2);
+    q.push(1);
+    // q.push(5);
+
+
+    queue<int> reversedQ = reverse(q, 2);
+    cout << "Reversed queue: ";
+    while (!reversedQ.empty()) {
+        cout << reversedQ.front() << " ";
+        reversedQ.pop();
+    }
 
 
 
@@ -482,5 +514,5 @@ int main() {
 
 
 
-    return -1;
+    return 0;
 }
