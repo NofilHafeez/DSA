@@ -30,6 +30,7 @@ using namespace std;
 // #include "BinarySearchTree/bst.cpp"
 #include "BinarySearchTreeAVL/bstAVL_116.cpp"
 #include "expressionTree/expressionTree.cpp"
+#include "queue/queueWithStack.cpp"
 
 
 
@@ -441,19 +442,39 @@ int main() {
 
 
 
-    string infix;
-    cin >> infix;
+    // string infix;
+    // cin >> infix;
 
-    Expression expr;
-    // string postFix = convert(infix, s);
-    string postFix = expr.convertWithBrackets(infix);
-    cout << postFix << endl;
-    double result = expr.postFixEval(postFix);
-    cout << result << endl;
+    // Expression expr;
+    // // string postFix = convert(infix, s);
+    // string postFix = expr.convertWithBrackets(infix);
+    // cout << postFix << endl;
+    // double result = expr.postFixEval(postFix);
+    // cout << result << endl;
 
-    Expression::ExpNode* root = expr.createNode(postFix);
-    cout << "Inorder traversal of expression tree: ";
-    expr.inorder(root);
+    // Expression::ExpNode* root = expr.createNode(postFix);
+    // cout << "Inorder traversal of expression tree: ";
+    // expr.inorder(root);
+
+
+    enqueue(1);
+    enqueue(2);
+    enqueue(3);
+    enqueue(4);
+
+    dequeue();
+    dequeue();
+
+    enqueue(7);
+    enqueue(9);
+
+
+
+    display();
+
+
+
+
 
 
 

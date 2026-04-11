@@ -16,6 +16,7 @@ using namespace std;
         arr.push_back(value);
         int i = arr.size() - 1;
 
+        
         while (i > 1)
         {
             int parent = i / 2;
