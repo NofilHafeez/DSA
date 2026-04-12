@@ -1,22 +1,21 @@
 #pragma once
 
 class StackNode {
-    public:
+public:
     int data;
-    StackNode* topNode;
+    StackNode* next;
 
     StackNode(int value) {
-        data = value; 
-        topNode = nullptr; 
+        data = value;
+        next = nullptr;
     }
 };
 
 
 class Stack {
-private:
-    StackNode* topNode;
-
+    
 public:
+    StackNode* topNode;
     Stack();
     void push(int value);
     void pop();
@@ -24,6 +23,8 @@ public:
     bool isEmpty() const;
     void print();
     void searching(int);
+    void merge(Stack& s1, Stack& s2);
+
 };
 
 

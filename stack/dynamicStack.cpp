@@ -3,12 +3,17 @@ using namespace std;
 #include <iostream>
 
 
-Stack::Stack() : topNode(nullptr) {}
+Stack::Stack() : topNode(nullptr){}
 
 void Stack::push(int value) {
     StackNode* newNode = new StackNode(value);
-    newNode->topNode = topNode;
-    topNode = newNode;
+    if (isEmpty()) {
+        topNode = newNode;
+    } else {
+        newNode->next = topNode;
+        topNode = newNode;
+    }
+   
 }
 
 void Stack::pop() {
@@ -16,7 +21,7 @@ void Stack::pop() {
         return; // Stack is empty, nothing to pop
     }
     StackNode* temp = topNode;
-    topNode = topNode->topNode;
+    topNode = topNode->next;
     delete temp;
 }
 
@@ -35,7 +40,7 @@ void Stack::print() {
     StackNode* current = topNode;
     while (current != nullptr) {
         cout << current->data << " ";
-        current = current->topNode;
+        current = current->next;
     }
     cout << endl;
 }
@@ -47,7 +52,24 @@ void Stack::searching(int value) {
             cout << "Found: " << value << endl;
             return;
         }
-        current = current->topNode;
+        current = current->next;
     }
     cout << "Not Found: " << value << endl;
 }
+
+StackNode* Stack::merge(StackNode* s1, StackNode* s2){
+        if (s1 == nullptr) return s2;
+        if (s2 == nullptr) return s1;
+
+        StackNode* temp = s1;
+        while (temp->next != nullptr) {
+            temp = temp->next;
+         }
+        temp->next = s2;
+        return s1;
+}
+
+// 1 2 3 4 , // 5 6 7 8
+// 3 s1   6 s2
+// 2      5
+// 1      4

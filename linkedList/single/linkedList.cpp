@@ -258,3 +258,106 @@ public:
   
     }
 };
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if (head == nullptr) {
+            return nullptr;
+        }
+        
+        ListNode* returnPrev = reverseList(head->next);
+        if (returnPrev != nullptr) {
+            head->next->next = head;
+            head->next = nullptr; 
+            return returnPrev;
+        } else {
+            return head;
+        }
+    }
+};
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        if (left == right) return head;
+
+        ListNode dummy(0);
+        dummy.next = head;
+        ListNode* curr = &dummy;
+
+        int i = 0;
+        ListNode* leftNode = nullptr;
+        ListNode* leftNodePrev = nullptr;
+        ListNode* rightNode = nullptr;
+        ListNode* rightNodePrev = nullptr;
+        while (curr != nullptr) {
+            if (i == left - 1) {
+                leftNodePrev = curr;
+                leftNode = curr->next;
+             }
+            if (i == left && left == 1) {  
+                leftNode = curr;
+            }
+            if (i == right) {
+                rightNode = curr;
+                rightNodePrev = curr->next;
+            }
+            curr = curr->next;
+            i++;
+        }
+        
+        bool done = false;
+        ListNode* returnHead = reverse(head, leftNode, rightNode, leftNodePrev, rightNodePrev, done);
+        return dummy.next;
+    }
+
+    ListNode* reverse(ListNode* head, ListNode* left, ListNode* right, ListNode* leftPrev, ListNode* rightPrev, bool& done ) {
+    if (head == right || head == nullptr) {
+        return head;
+    }
+
+      ListNode* returnPrev = reverse(head->next, left, right, leftPrev, rightPrev, done);
+    
+        if (done) {
+            return returnPrev;
+        }
+
+      if (head != left && left != nullptr ) {
+            ListNode* prevNext  = returnPrev->next;
+            head->next->next = head;
+            head->next = left;
+            return returnPrev;
+        } else {
+           done = true;
+            if (head->next == right) {
+                head->next->next = head; 
+            }
+            head->next = rightPrev;      
+            leftPrev->next = returnPrev; 
+            return leftPrev;         
+        } 
+        return head;
+    }
+};

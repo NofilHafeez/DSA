@@ -35,6 +35,7 @@ using namespace std;
 #include "queue/queueWithStack.cpp"
 #include "stack/reverseStack.cpp"
 #include "queue/reverseQueue.cpp"
+#include "stack/dynamicStack.cpp"
 
 
 
@@ -477,33 +478,50 @@ int main() {
     // display();
 
 
-    stack<int> s;
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    s.push(4);
+    // stack<int> s;
+    // s.push(1);
+    // s.push(2);
+    // s.push(3);
+    // s.push(4);
 
-    stack<int> reversed = reverse(s);
-    cout << "Reversed stack: ";
-    while (!reversed.empty()) {
-        cout << reversed.top() << " ";
-        reversed.pop();
-    }
+    // stack<int> reversed = reverse(s);
+    // cout << "Reversed stack: ";
+    // while (!reversed.empty()) {
+    //     cout << reversed.top() << " ";
+    //     reversed.pop();
+    // }
 
-    queue<int> q;
-    q.push(4);
-    q.push(3);
-    q.push(2);
-    q.push(1);
-    // q.push(5);
+    // queue<int> q;
+    // q.push(4);
+    // q.push(3);
+    // q.push(2);
+    // q.push(1);
+    // // q.push(5);
 
 
-    queue<int> reversedQ = reverse(q, 2);
-    cout << "Reversed queue: ";
-    while (!reversedQ.empty()) {
-        cout << reversedQ.front() << " ";
-        reversedQ.pop();
-    }
+    // queue<int> reversedQ = reverse(q, 2);
+    // cout << "Reversed queue: ";
+    // while (!reversedQ.empty()) {
+    //     cout << reversedQ.front() << " ";
+    //     reversedQ.pop();
+    // }
+
+
+    Stack s1;
+    Stack s2;
+    s1.push(1);
+    s1.push(2);
+    s1.push(3);
+
+
+    s2.push(4);
+    s2.push(5);
+    s2.push(6);
+
+
+    s2.merge(s2, s1);
+    s2.print();
+
 
 
 

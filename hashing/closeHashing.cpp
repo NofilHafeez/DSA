@@ -52,22 +52,23 @@ public:
     }
 
 
+void insertLinear(int key) {
+    int start = hashFunction(key);  // compute hash once
 
-    void insertLinear(int key) {
-        for (int i = 0; i < TABLE_SIZE; i++) {
-            int probe = (hashFunction(key) + i) % TABLE_SIZE;
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        int probe = (start + i) % TABLE_SIZE;
 
-            if (table[probe] == -1) {
-                table[probe] = key;
-                return;
-            } 
-            if (table[probe] == key) {
-                cout << "Duplicate\n";
-                return;
-            }
+        if (table[probe] == -1) {
+            table[probe] = key;
+            return;
         }
-        cout << "Hash table is full\n";
+        if (table[probe] == key) {
+            cout << "Duplicate\n";
+            return;
+        }
     }
+    cout << "Hash table is full\n";
+}
 
 
     double getLoadFactor() {
