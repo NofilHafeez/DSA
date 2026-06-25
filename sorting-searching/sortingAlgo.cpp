@@ -14,7 +14,7 @@ public:
         for (int i = 0; i < 10; i++)
         {
             flag = false;
-            for (int j = 0; j < 9; j++)
+            for (int j = 0; j < 9 - i; j++)
             {
                if (arr[j] > arr[j + 1]){ // fix needed the program is looping more extra.
                     flag = true;
@@ -39,7 +39,10 @@ public:
     }
 
 
-    void selectionSort() {
+    void selectionSort() { // unstable sort
+        // Stable result:   {1, 3a, 3b, 9}   original order preserved
+        // Unstable result: {1, 3b, 3a, 9}   order swapped
+        
         int arr[10] = {42 , 525 , 43 , 12 , 5 , 23 , 1 , 90 , 34 , 76};
         int min = 0;
         int n = 10;

@@ -4,7 +4,7 @@ using namespace std;
 
 class MergeSort {
     vector<int> temp;
-
+ 
 public:
     void sort(vector<int>& arr) {
         temp.resize(arr.size());
