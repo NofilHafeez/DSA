@@ -43,7 +43,7 @@ private:
 
                 if (i < j) {
                     swap(arr[i], arr[j]);
-                }
+                }   
             }
 
             swap(arr[left], arr[j]);
@@ -55,6 +55,7 @@ private:
              
             while (left  < right) {
                 
+                // right
                 while (pivot != right) {
                     if (arr[pivot] > arr[right]) {
                         swap(arr[pivot], arr[right]);
@@ -65,6 +66,7 @@ private:
                     }
                 }
 
+                // left
                 while (pivot != left) {
                     if (arr[pivot] < arr[left]) {
                         swap(arr[pivot], arr[left]);

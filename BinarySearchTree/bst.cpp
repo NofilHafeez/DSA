@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 struct Node
 {
     int data;
@@ -127,6 +129,66 @@ public:
     }
 }
 
+    void findPredecessorsSuccesors(Node* node) {
+        if (node == nullptr)
+            return;
+
+        if (node->left != nullptr) {
+            Node* predecessor = node->left;
+            while (predecessor->right != nullptr)
+                predecessor = predecessor->right;
+            cout << "Predecessor of " << node->data << " is: " << predecessor->data << endl;
+        } else {
+            cout << "No predecessor for " << node->data << endl;
+        }
+
+        if (node->right != nullptr) {
+            Node* successor = node->right;
+            while (successor->left != nullptr)
+                successor = successor->left;
+            cout << "Successor of " << node->data << " is: " << successor->data << endl;
+        } else {
+            cout << "No successor for " << node->data << endl;
+        }
+
+
+    }
+
+        int height(Node* root)
+{
+    if (root == nullptr)
+        return 0;
+
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);
+
+    return max(leftHeight, rightHeight) + 1;
+}
+
+
+
+int countLeaves(Node* root)
+{
+    if (root == nullptr)
+        return 0;
+
+    if (root->left == nullptr && root->right == nullptr)
+        return 1;
+
+    return countLeaves(root->left) + countLeaves(root->right);
+}
+
+int countInternal(Node* root)
+{
+    if (root == nullptr)
+        return 0;
+
+    if (root->left == nullptr && root->right == nullptr)
+        return 0;
+
+    return 1 + countInternal(root->left) + countInternal(root->right);
+}
+
     void inorderDisplay(Node* root) {
         if (root == nullptr) 
             return;
@@ -151,3 +213,25 @@ public:
         inorderSearch(root->right, data);     
     }
 };
+
+
+int main () {
+    BST bst;
+    bst.root = bst.insertSecond(50, bst.root);
+    bst.insertSecond(30, bst.root);
+    bst.insertSecond(70, bst.root);
+    bst.insertSecond(20, bst.root);
+    bst.insertSecond(40, bst.root);
+    bst.insertSecond(60, bst.root);
+    bst.insertSecond(80, bst.root);
+
+
+    bst.findPredecessorsSuccesors(bst.root);
+
+
+
+
+
+
+    return 0;
+}
